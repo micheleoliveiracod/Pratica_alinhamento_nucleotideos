@@ -4,46 +4,69 @@ Este repositório documenta uma prática básica de bioinformática: criação d
 ## 1. Instalar Miniconda no Linux (via bash)
 No terminal Linux:
 criar pasta para o instalador
+
+```
 mkdir -p ~/miniconda3
+```
 
 baixar o instalador mais recente do Miniconda (Python 3, 64 bits)
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 
 executar o instalador em modo silencioso
+```
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+```
 
 remover o instalador
+```
 rm -f ~/miniconda3/miniconda.sh
+```
 
 inicializar o conda no bash
+```
 ~/miniconda3/bin/conda init bash
+```
 
 reiniciar o shell (feche e abra o terminal, ou rode:)
+```
 source ~/.bashrc
+```
 
 ## 2. Criar e ativar o ambiente Conda (bioinfo)
 criar ambiente com nome bioinfo
+```
 conda create -n bioinfo python=3.11 -y
+```
 
 ativar o ambiente
+```
 conda activate bioinfo
+```
 
 Configurar canais para bioinformática (Bioconda)
+```
 conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
+```
 
 ## 3. Instalar BLAST e MAFFT no ambiente
 Com o ambiente bioinfo ativo:
 instalar BLAST
+```
 conda install -c bioconda blast -y
+```
 
 instalar MAFFT
+```
 conda install -c bioconda mafft -y
+```
 
 Verificar versões:
+```
 blastn -version
 mafft --version
+```
 
 ## 4. Instalar AliView no Windows
 No Windows, baixe e instale o AliView (visualizador/editor de alinhamentos).
@@ -65,51 +88,63 @@ Copie os arquivos para seu ambiente Linux.
 
 ## ​6. Alinhamento com BLAST
 Com o ambiente bioinfo ativo e os arquivos FASTA no diretório atual:
-
+```
 conda activate bioinfo
-
+```
 conferir arquivos:
+```
 ls *.fasta
+```
 
 6.1. Alinhamento par a par (Nucleotide e Vírus)
-
+```
 blastn -query Alzaimer_ApoE4.fasta -subject Alzaimer_ApoE3.fasta -outfmt 0 -out alinhamento_Alzaimer_ApoE3+4_blast.fasta
 
 less alinhamento_Alzaimer_ApoE34_blast.fasta
-
+```
+```
 blastn -query Influenza_H1N1.fasta -subject Influenza_H5N1.fasta -outfmt 0 -out alinhamento_Influenza_H1N1_H5N1_blast.fasta
 
 less alinhamento_Influenza_H5N1_blast.fasta
-
+```
+```
 blastn -query Influenza_H1N1.fasta -subject Alzaimer_ApoE4.fasta -outfmt 0 -out alinhamento__H1N1_ApoE4_blast.fasta
 
 less alinhamento__H1N1_ApoE4_blast.fasta
-
+```
 ## 7. Alinhamento com MAFFT
 
 conferir
+```
 ls *.fasta
-Alzaimer_ApoE3.fasta  Alzaimer_ApoE4.fasta
+```
 
 Junte as duas em um único arquivo multi‑FASTA:
+```
 cat Alzaimer_ApoE3.fasta Alzaimer_ApoE4.fasta > duas_sequencias.fasta
-
+```
 Rode o MAFFT neste arquivo multi‑FASTA:
+```
 mafft Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
-
+```
 Ou, deixando o MAFFT escolher a melhor estratégia automaticamente:
+```
 mafft --auto Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
+```
 
-
-Junte as duas em um único arquivo multi‑FASTA:
+Junte as duas em um único arquivo multi‑FASTA
+```
 cat Influenza_H1N1.fasta Influenza_H5N1.fasta > sequencia_H1N1+H5N1.fasta
-
-Rode o MAFFT neste arquivo multi‑FASTA:
+```
+Rode o MAFFT neste arquivo multi‑FASTA
+```
 mafft sequencia_H1N1+H5N1.fasta > alinhamento_H1N1_H5N1_mafft.fasta
+```
 
-Ou, deixando o MAFFT escolher a melhor estratégia automaticamente:
+Ou, deixando o MAFFT escolher a melhor estratégia automaticamente
+```
 mafft --auto sequencia_H1N1+H5N1.fasta > alinhamento_H1N1_H5N1_mafft.fasta
-
+```
 
 ## 8. Visualizar alinhamentos no AliView (Windows) - somente alinhamentos feitos com o MAFFT
 Copie os arquivos de alinhamento (alinhamento_Alzaimer_ApoE3+4_mafft.fasta) do Linux para o Windows:
