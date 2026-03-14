@@ -10,7 +10,9 @@ mkdir -p ~/miniconda3
 ```
 
 baixar o instalador mais recente do Miniconda (Python 3, 64 bits)
+```
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+```
 
 executar o instalador em modo silencioso
 ```
