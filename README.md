@@ -74,11 +74,11 @@ ls *.fasta
 6.1. Alinhamento par a par (Nucleotide e Vírus)
 
 blastn -query Alzaimer_ApoE4.fasta \
-       -subject Alzaimer_ApoE4.fasta \
+       -subject Alzaimer_ApoE3.fasta \
        -outfmt 0 \
-       -out alinhamento_Alzaimer_ApoE4_blast.fasta
+       -out alinhamento_Alzaimer_ApoE3+4_blast.fasta
 
-less alinhamento_Alzaimer_ApoE4_blast.fasta
+less alinhamento_Alzaimer_ApoE34_blast.fasta
 
 blastn -query Influenza_H5N1.fasta \
        -subject Influenza_H5N1.fasta \
@@ -116,6 +116,21 @@ Navegue pelas colunas de alinhamento, verifique identidade, gaps, etc.
 
 Exemplo de visualização típica: duas sequências nas linhas, posições alinhadas por coluna, com cores por tipo de base/resíduo.
 
+## 9. Explicação rapida entre os metodos Blast e Mafft
+
+BLAST (alinhamento par a par)
+O BLAST mostra o alinhamento entre Query (sua sequência) e Subject (sequência do banco) com estatísticas.
+
+Comparando MAFFT/AliView e BLAST
+BLAST responde: “quão semelhante é essa sequência a outra, e onde estão os trechos parecidos?”.
+
+MAFFT + AliView mostram: “como várias sequências se alinham coluna a coluna, e onde estão conservações, mutações e gaps ao longo de todo o gene.”
+
+Um fluxo típico da prática:
+
+BLAST entre duas sequências → olhar % identidade, cobertura, gaps e onde o alinhamento é forte/fraco.
+
+MAFFT com essas mesmas sequências → ver visualmente as posições exatas de mutações e indels ao longo de todo o gene.
 
 <div align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=micheleoliveiracod.Pratica_alinhamento_nucleotideos&"  />
