@@ -115,3 +115,8 @@ alinhamento_Alzaimer_ApoE3+4_mafft.fasta
 Navegue pelas colunas de alinhamento, verifique identidade, gaps, etc.
 
 Exemplo de visualização típica: duas sequências nas linhas, posições alinhadas por coluna, com cores por tipo de base/resíduo.
+
+
+<div align="center">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=micheleoliveiracod.Pratica_alinhamento_nucleotideos&"  />
+</div>
