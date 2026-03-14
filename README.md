@@ -114,11 +114,11 @@ less alinhamento__H1N1_ApoE4_blast.fasta
 ```
 ## 7. Alinhamento com MAFFT
 
-conferir
+conferir os arquivos da pasta
 ```
 ls *.fasta
 ```
-
+ALZAIMER ApoE3 e ApoE4
 Junte as duas em um único arquivo multi‑FASTA:
 ```
 cat Alzaimer_ApoE3.fasta Alzaimer_ApoE4.fasta > duas_sequencias.fasta
@@ -127,11 +127,11 @@ Rode o MAFFT neste arquivo multi‑FASTA:
 ```
 mafft Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
 ```
-Ou, deixando o MAFFT escolher a melhor estratégia automaticamente:
+O MAFFT escolhe a melhor estratégia automaticamente:
 ```
 mafft --auto Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
 ```
-
+INFLUENZA H1N1 e H5N1
 Junte as duas em um único arquivo multi‑FASTA
 ```
 cat Influenza_H1N1.fasta Influenza_H5N1.fasta > sequencia_H1N1+H5N1.fasta
