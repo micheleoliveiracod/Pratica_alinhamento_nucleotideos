@@ -116,21 +116,39 @@ Navegue pelas colunas de alinhamento, verifique identidade, gaps, etc.
 
 Exemplo de visualização típica: duas sequências nas linhas, posições alinhadas por coluna, com cores por tipo de base/resíduo.
 
-## 9. Explicação rapida entre os metodos Blast e Mafft
+## 9. Sobre os metodos Blast e Mafft
 
-BLAST (alinhamento par a par)
-O BLAST mostra o alinhamento entre Query (sua sequência) e Subject (sequência do banco) com estatísticas.
+BLAST – quando usar
+Ferramenta de busca: você coloca uma sequência (query) e o BLAST procura sequências semelhantes em um banco (NCBI, por exemplo).
 
-Comparando MAFFT/AliView e BLAST
-BLAST responde: “quão semelhante é essa sequência a outra, e onde estão os trechos parecidos?”.
+Responde perguntas como:
 
-MAFFT + AliView mostram: “como várias sequências se alinham coluna a coluna, e onde estão conservações, mutações e gaps ao longo de todo o gene.”
+“Minha sequência parece com qual gene conhecido?”
 
-Um fluxo típico da prática:
+“De que espécie pode ser essa sequência desconhecida?”
 
-BLAST entre duas sequências → olhar % identidade, cobertura, gaps e onde o alinhamento é forte/fraco.
+“Quão semelhante é essa sequência de Alzheimer a outra?”
 
-MAFFT com essas mesmas sequências → ver visualmente as posições exatas de mutações e indels ao longo de todo o gene.
+Saída principal: alinhamentos locais par a par com estatísticas (identidade %, E‑value, bit score) para dizer se o match é forte ou fraco.
+
+Use BLAST quando quiser identificar, comparar ou encontrar homólogos em bancos de dados.
+
+MAFFT – quando usar
+Ferramenta de alinhamento múltiplo de sequências: você fornece 2, 3, 10, 100+ sequências (do mesmo gene, por exemplo), e ele alinha tudo em colunas.
+
+Responde perguntas como:
+
+“Onde esse gene é conservado e onde ele varia entre espécies/variantes?”
+
+“Quais posições do gene Alzheimer mudam mais?”
+
+“Como preparar um alinhamento para árvore filogenética?”
+
+Saída: um arquivo de alinhamento (FASTA/PHYLIP, etc.) que você vê em visores como AliView, analisando mutações, gaps e regiões conservadas.
+
+Use MAFFT quando quiser comparar diretamente várias sequências alinhadas posição a posição (por exemplo, diferentes versões do mesmo gene de Alzheimer).
+
+
 
 <div align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=micheleoliveiracod.Pratica_alinhamento_nucleotideos&"  />
