@@ -149,7 +149,6 @@ Saída: um arquivo de alinhamento (FASTA/PHYLIP, etc.) que você vê em visores 
 Use MAFFT quando quiser comparar diretamente várias sequências alinhadas posição a posição (por exemplo, diferentes versões do mesmo gene de Alzheimer).
 
 
-
 <div align="center">
   <img src="https://visitor-badge.laobi.icu/badge?page_id=micheleoliveiracod.Pratica_alinhamento_nucleotideos&"  />
 </div>
