@@ -1,0 +1,60 @@
+mkdir -p ~/miniconda3
+
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+
+inicializar o conda no bash
+
+~/miniconda3/bin/conda init bash
+
+reiniciar o shell (feche e abra o terminal, ou rode:)
+
+source ~/.bashrc
+
+conda create -n bioinfo python=3.11 -y
+
+ativar o ambiente
+
+conda activate bioinfo
+
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+conda install -c bioconda blast -y
+
+
+conda install -c bioconda mafft -y
+
+blastn -version
+mafft --version
+
+conda activate bioinfo
+
+ls *.fasta
+
+blastn -query Alzaimer_ApoE4.fasta -subject Alzaimer_ApoE3.fasta -outfmt 0 -out alinhamento_Alzaimer_ApoE3+4_blast.fasta
+
+less alinhamento_Alzaimer_ApoE34_blast.fasta
+
+blastn -query Influenza_H1N1.fasta -subject Influenza_H5N1.fasta -outfmt 0 -out alinhamento_Influenza_H1N1_H5N1_blast.fasta
+
+less alinhamento_Influenza_H5N1_blast.fasta
+
+blastn -query Influenza_H1N1.fasta -subject Alzaimer_ApoE4.fasta -outfmt 0 -out alinhamento__H1N1_ApoE4_blast.fasta
+
+less alinhamento__H1N1_ApoE4_blast.fasta
+
+ls *.fasta
+
+cat Alzaimer_ApoE3.fasta Alzaimer_ApoE4.fasta > duas_sequencias.fasta
+
+Rode o MAFFT neste arquivo multi‑FASTA:
+
+mafft Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
+
+cat Influenza_H1N1.fasta Influenza_H5N1.fasta > sequencia_H1N1+H5N1.fasta
+
+mafft sequencia_H1N1+H5N1.fasta > alinhamento_H1N1_H5N1_mafft.fasta
+
